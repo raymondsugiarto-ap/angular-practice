@@ -15,22 +15,21 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
+            "preserveSymlinks": true,
             "outputPath": "dist/basic-component",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.json",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -62,7 +61,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
               "browserTarget": "basic-component:build:production"

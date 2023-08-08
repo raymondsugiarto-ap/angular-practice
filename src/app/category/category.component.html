@@ -1,0 +1,25 @@
+<!--<p>category works!</p>-->
+<!--<app-checkbox *ngIf="!hide" label="Komputer"></app-checkbox> <br/>-->
+
+<!--<button (click)="onClick()">-->
+<!--  {{ hide ? 'Show' : 'Hide' }}-->
+<!--</button>-->
+<!--<br/>-->
+
+<!--<span [ngClass]="hide ? 'd-none' : ''">Hello works</span>-->
+
+<!--================== <br/>-->
+
+<div *ngFor="let category of categories">
+  <app-checkbox [label]="category.name" [checked]="category.checked" (checkedChange)="onCheckedChange(category)">
+  </app-checkbox>
+  <ng-template [ngIf]="category.categories">
+    <div class="subcategory">
+      <app-category [categories]="category.categories" ></app-category>
+    </div>
+  </ng-template>
+</div>
+
+
+
+
